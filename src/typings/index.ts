@@ -3,3 +3,7 @@ export type LocaleDictionary = {
 }
 
 export type SvelteModuleType = typeof import('*.svelte');
+
+export interface FirebaseModel {
+    id?: string;
+}

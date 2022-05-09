@@ -15,5 +15,6 @@ export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();
 onAuthStateChanged(auth, userAuth => {
+  console.log("auth state changed", userAuth);
   user.set(userAuth);
 });

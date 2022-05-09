@@ -19,10 +19,10 @@
   <Router>
     <div class="h-100 d-flex flex-column">
       <Navbar />
-      <div class="flex-grow-1 container pt-2">
+      <div class="flex-grow-1 container pt-2 d-flex flex-column">
         {#each Object.values(routes) as route}
-          <Route path={route.path}>
-            <ComponentLoader importer={route.component} />
+          <Route path={route.path} let:params>
+            <ComponentLoader importer={route.component} {params} />
           </Route>
         {/each}
       </div>  

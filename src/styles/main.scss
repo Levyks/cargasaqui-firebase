@@ -5,3 +5,22 @@ html, body, #app {
 .card-width-sm {
     width: min(100%, 32rem);
 }
+
+a, .btn-link {
+    text-decoration: none;
+    color: #1e1e1e;
+
+    &:hover {
+        color: #1b406d;
+        text-decoration: underline;
+    }
+}
+
+.btn-link {
+    padding: 0;
+    border: 0;
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}

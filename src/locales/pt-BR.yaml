@@ -18,6 +18,21 @@ passwordStrength:
     uppercase: 'Letras maiúsculas'
     number: 'Números'
     symbol: 'Caracteres especiais'
+navbar:
+  logoAlt: 'Logo do CargasAqui'
+  login: 'Login'
+  logout: 'Sair'
+  editProfile: 'Editar perfil'
+  companies: 'Empresas'
+companies:
+  title: Empresas
+  logoAlt: 'Logo da empresa {name}'
+cargoes:
+  columns:
+    route: 'Rota'
+    state: 'UF'
+    numberOfDeliveries: 'Entregas'
+    weightInKg: 'Peso'
 profile:
   title: 'Perfil'
   newPassword: 'Nova senha'
@@ -35,12 +50,6 @@ notFound:
   title: 'Página não encontrada'
   description: 'Não conseguimos encontrar a página que você procura.'
   goHome: 'Voltar para a página inicial'
-navbar:
-  logoAlt: 'Logo do CargasAqui'
-  login: 'Login'
-  logout: 'Sair'
-  editProfile: 'Editar perfil'
-  cargoes: 'Cargas'
 misc:
   fields:
     email: 'E-mail'
@@ -48,3 +57,4 @@ misc:
     password: 'Senha'
   retry: 'Tentar novamente'
   loading: 'Carregando...'
+  noResults: 'Nenhum resultado encontrado'

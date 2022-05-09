@@ -9,6 +9,7 @@
     import type { SvelteModuleType} from '@/typings';
 
     export let importer: () => Promise<SvelteModuleType>
+    export let params: any = {};
 
     let loading: boolean = false;
     let component: SvelteComponentDev | null = null;
@@ -37,7 +38,7 @@
 
 {#if !errored}
     <LoadingFullPage {loading}>
-        <svelte:component this={component} />
+        <svelte:component this={component} {...params} />
     </LoadingFullPage>
 {:else}
     <CenteredFullPage>

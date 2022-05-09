@@ -38,7 +38,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav w-100">
-                <Link class="nav-link" to="/cargas">{$_('navbar.cargoes')}</Link>
+                <Link class="nav-link" to={routes.companies.path}>{$_('navbar.companies')}</Link>
                 <div class="flex-grow-1 d-flex justify-content-end">
                     {#if $user}
                         <div class="nav-item dropdown">
