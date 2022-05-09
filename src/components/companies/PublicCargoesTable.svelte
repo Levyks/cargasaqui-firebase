@@ -47,7 +47,7 @@
             orderBy("route"),
             limit(PAGE_SIZE),
         ]
-        if(pages.length) params.push(startAfter(last_cargo_snap));
+        if(last_cargo_snap) params.push(startAfter(last_cargo_snap));
         createPage(
             query(
                 db.companyCargoes($company), 
@@ -60,7 +60,7 @@
     handleLoadMore();
 
     onDestroy(() => {
-        pages.forEach(page => page.unsub());
+        pages.forEach(page => page?.unsub());
     });
 
 </script>
@@ -77,13 +77,7 @@
         </thead>
         <tbody>
             {#each pages as page (page.number)}
-                {#if !page.cargoes}
-                    <tr>
-                        <td colspan="4" class="text-center">
-                            <Spinner size={3}/>
-                        </td>  
-                    </tr> 
-                {:else}
+                {#if page.cargoes}
                     {#each page.cargoes as cargo}
                         <tr>
                             <td>{ cargo.route }</td>
@@ -92,16 +86,23 @@
                             <td>{ cargo.weightInKg.toLocaleString() } kg</td>
                         </tr>
                     {/each}
+                    {#if page.cargoes.length === 0 && page.number === 0}
+                        <tr>
+                            <td colspan="4" class="text-center">{ $_('misc.noResults') }</td>  
+                        </tr>
+                    {/if}
+                {:else}
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <Spinner/>
+                        </td>  
+                    </tr> 
                 {/if}
-            {:else}
-                <tr>
-                    <td colspan="4" class="text-center">{ $_('misc.noResults') }</td>  
-                </tr>
             {/each}
             {#if last_page?.snaps?.length === PAGE_SIZE}
                 <tr>
                     <td colspan="4" class="text-center">
-                        <button class="btn btn-link" on:click={handleLoadMore}>Load more</button>
+                        <button class="btn btn-link" on:click={handleLoadMore}>{ $_('misc.loadMore') }</button>
                     </td>  
                 </tr> 
             {/if}

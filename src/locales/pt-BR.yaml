@@ -58,3 +58,4 @@ misc:
   retry: 'Tentar novamente'
   loading: 'Carregando...'
   noResults: 'Nenhum resultado encontrado'
+  loadMore: 'Carregar mais'
