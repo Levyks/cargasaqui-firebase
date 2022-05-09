@@ -1,0 +1,50 @@
+errors:
+  unknown: 'Erro desconhecido'
+  firebase:
+    'auth/user-not-found': 'Usuário não encontrado.'
+    'auth/wrong-password': 'Senha incorreta.'
+  passwordConfirmDoesNotMatch: 'As senhas não conferem.'
+  newPasswordSameAsOld: 'A nova senha deve ser diferente da antiga.'
+  loadingComponent: 'Erro ao carregar componente.'
+passwordStrength:
+  label: 'Força da senha'
+  options:
+    tooWeak: 'Fraca demais'
+    weak: 'Fraca'
+    medium: 'Média'
+    strong: 'Forte'
+  contains:
+    lowercase: 'Letras minúsculas'
+    uppercase: 'Letras maiúsculas'
+    number: 'Números'
+    symbol: 'Caracteres especiais'
+profile:
+  title: 'Perfil'
+  newPassword: 'Nova senha'
+  confirmPassword: 'Confirmar senha'
+  newPasswordNotice: 'Deixe em branco para não alterar a senha.'
+  oldPassword: 'Senha antiga'
+  oldPasswordNotice: 'Só é necessário se você deseja alterar a sua senha.'
+  newPasswordStrengthNotice: 'A senha precisa ter pelo menos 6 caracteres e 2 das seguintes:'
+  save: 'Salvar'
+login:
+  title: 'Login'
+  forgotPassword: 'Esqueceu sua senha?'
+  signIn: 'Entrar'
+notFound:
+  title: 'Página não encontrada'
+  description: 'Não conseguimos encontrar a página que você procura.'
+  goHome: 'Voltar para a página inicial'
+navbar:
+  logoAlt: 'Logo do CargasAqui'
+  login: 'Login'
+  logout: 'Sair'
+  editProfile: 'Editar perfil'
+  cargoes: 'Cargas'
+misc:
+  fields:
+    email: 'E-mail'
+    name: 'Nome'
+    password: 'Senha'
+  retry: 'Tentar novamente'
+  loading: 'Carregando...'
