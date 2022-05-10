@@ -1,9 +1,6 @@
 <script lang="ts">
+    import { navigate } from "svelte-routing";
+    import { routes } from "@/services/router";
 
-    import { userIsMasterAdmin } from "@/stores";
-
-    $: console.log($userIsMasterAdmin);
-
+    navigate(routes.companies.path);
 </script>
-
-<h1>Home</h1>

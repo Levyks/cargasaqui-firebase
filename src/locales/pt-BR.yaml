@@ -33,6 +33,11 @@ cargoes:
     state: 'UF'
     numberOfDeliveries: 'Entregas'
     weightInKg: 'Peso'
+    payment: 'Frete'
+    advancePayment: 'Adiantamento'
+    driverName: 'Motorista'
+    driverPhone: 'Telefone Motorista'
+    note: 'Observação'
 profile:
   title: 'Perfil'
   newPassword: 'Nova senha'

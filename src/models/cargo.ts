@@ -8,3 +8,11 @@ export default interface Cargo extends FirebaseModel {
     state: DocumentReference;
     status: DocumentReference;
 }
+
+export interface CargoPrivate extends FirebaseModel {
+    payment: number;
+    advancePayment: number;
+    driverName: string;
+    driverPhone: string;
+    note: string;
+}

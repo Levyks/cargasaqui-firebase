@@ -11,13 +11,12 @@ a, .btn-link {
     color: #1e1e1e;
 
     &:hover {
-        color: #1b406d;
+        color: #01aae5;
         text-decoration: underline;
     }
 }
 
 .btn-link {
-    padding: 0;
     border: 0;
     &:focus {
         outline: none;

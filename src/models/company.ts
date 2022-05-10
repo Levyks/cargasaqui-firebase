@@ -1,11 +1,15 @@
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import type { DocumentReference } from "firebase/firestore";
 import type { FirebaseModel } from "@/typings";
+import type Status from "./status";
 
 export default interface Company extends FirebaseModel {
     name: string;
     public_statuses: DocumentReference[];
     logoSrc?: string;
+    statuses?: {
+        [id: string]: Status;
+    };
 }
 
 function fetchLogoSrc(company: Company): Promise<string> {

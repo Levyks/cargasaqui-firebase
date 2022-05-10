@@ -1,29 +1,38 @@
 import { getFirestore, collection, QueryDocumentSnapshot, QuerySnapshot, onSnapshot, doc, Unsubscribe } from "firebase/firestore";
+import { app } from ".";
+
 import type { CollectionReference } from "firebase/firestore";
 import type { Writable } from "svelte/store";
 
-import type { Company, Cargo } from "@/models";
+import type { Company, Cargo, CargoPrivate, Status } from "@/models";
 import type { FirebaseModel } from "@/typings";
 
-const firestore = getFirestore();
-
-const converter = <T extends FirebaseModel>() => ({
-    toFirestore: (data: T) => data,
-    fromFirestore: (snap: QueryDocumentSnapshot) =>
-        ({
-            ...(snap.data()),
-            id: snap.id
-        }) as T
-});
-
-const dataPoint = <T extends FirebaseModel>(collectionPath: string) =>
-    collection(firestore, collectionPath).withConverter(converter<T>());
+const firestore = getFirestore(app);
 
 export const db = {
     companies: dataPoint<Company>("companies"),
     companyCargoes: (company: Company) => dataPoint<Cargo>(`companies/${company.id}/cargoes`),
+    cargoPrivate: (cargo: Cargo) => dataPoint<CargoPrivate>(`${cargo.snap.ref.path}/private`),
+    companyStatuses: (company: Company) => dataPoint<Status>(`companies/${company.id}/statuses`),
+    companyIdStatuses: (companyId: string) => dataPoint<Status>(`companies/${companyId}/statuses`),
 }
 
+function converter<T extends FirebaseModel>() {
+    return {
+        toFirestore: (data: T) => data,
+        fromFirestore: (snap: QueryDocumentSnapshot) =>
+            ({
+                ...(snap.data()),
+                id: snap.id,
+                snap
+            }) as T
+    };     
+}
+
+function dataPoint<T extends FirebaseModel>(collectionPath: string) {
+    return collection(firestore, collectionPath).withConverter(converter<T>());
+}
+    
 /* ------------------------ */
 
 export function subDocumentToStore<T extends FirebaseModel>(

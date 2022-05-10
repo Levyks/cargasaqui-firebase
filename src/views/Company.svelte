@@ -1,6 +1,8 @@
 <script lang="ts">
 
     import { onDestroy } from "svelte/internal";
+
+    import { onSnapshot } from "firebase/firestore";
     
     import { company, userIsMasterAdmin, userRoleInCompany } from "@/stores";
     import { db, subDocumentToStore } from "@/services/firebase/db";
@@ -8,14 +10,14 @@
     import LoadingWithNotFound from "@/components/misc/LoadingWithNotFound.svelte";
     import ComponentLoader from "@/components/misc/ComponentLoader.svelte";
 
-    import CompanyLogo from "@/components/companies/CompanyLogo.svelte";
+    import CompanyLogo from "@/components/companies/CompanyLogo.svelte";    
 
     export let id: string;
     let notFound: boolean = false;
 
     const unsub = subDocumentToStore(db.companies, id, company, () => notFound = true);
 
-    onDestroy(() => unsub());
+    onDestroy(unsub);
 
 </script>
 

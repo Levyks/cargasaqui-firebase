@@ -19,7 +19,7 @@
   <Router>
     <div class="h-100 d-flex flex-column">
       <Navbar />
-      <div class="flex-grow-1 container pt-2 d-flex flex-column">
+      <div class="flex-grow-1 container-fluid pt-2 d-flex flex-column">
         {#each Object.values(routes) as route}
           <Route path={route.path} let:params>
             <ComponentLoader importer={route.component} {params} />
